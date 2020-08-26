@@ -15,6 +15,9 @@
         "no-trailing-spaces": "off",
         "eol-last": "off",
         "require-jsdoc": "off",
+        "padded-blocks": "off",
+        "operator-linebreak": "off",
+        "max-len":"off",
     },
     "extends": ["eslint:recommended", "google"]
 }
