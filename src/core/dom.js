@@ -24,6 +24,22 @@ class Dom {
         }
     }
 
+    closest(selector) {
+        return $(this.$el.closest(selector))
+    }
+
+    getCoords() {
+        return this.$el.getBoundingClientRect()
+    }
+
+    get data() {
+        return this.$el.dataset
+    }
+
+    findAll(selector) {
+        return this.$el.querySelectorAll(selector)
+    }
+
     on(eventType, callback) {
         console.log('Добавил')
         this.$el.addEventListener(eventType, callback)
@@ -32,6 +48,10 @@ class Dom {
     off(eventType, callback) {
         console.log('Удалил')
         this.$el.removeEventListener(eventType, callback)
+    }
+
+    css(styles = {}) {
+        Object.keys(styles).forEach(key => this.$el.style[key] = styles[key])
     }
 
 }
