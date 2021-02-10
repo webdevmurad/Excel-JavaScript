@@ -1,15 +1,20 @@
 import {ExcelComponent} from '@core/ExcelComponent'
 
+// Наследуемся от ExcelComponent
 export class Toolbar extends ExcelComponent {
+    // Наименования класса у компонента
     static className = 'excel__toolbar'
 
     constructor($root, options) {
+        // В root получаем объект с div и классом.
         super($root, {
+            // Мы в объект добавляем новую инфу и применяем spread-оператор
             name: 'Toolbar',
             ...options
         })
     }
 
+    // Данная функция возрвращает нам нашу верстку
     toHTML() {
         return `
         <div class="button">
