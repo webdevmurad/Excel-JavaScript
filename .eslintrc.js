@@ -10,5 +10,8 @@ module.exports = {
     node: true,
     es6: true,
   },
+  rules: {
+    'require-jsdoc': 0,
+  },
   extends: 'google',
 };

@@ -52,11 +52,11 @@ module.exports = (env, argv) => {
       extensions: ['.js'],
       alias: {
         '@': path.resolve(__dirname, 'src'),
-        '@core': path.resolve(__dirname, 'src', 'core'),
+        '@core': path.resolve(__dirname, 'src', 'src/core'),
       },
     },
     devServer: {
-      port: '3000',
+      port: '3001',
       // open: true,
       hot: true,
     },
