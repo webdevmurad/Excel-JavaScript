@@ -5,6 +5,7 @@ class Dom {
       selector;
   }
 
+  // Тут возвращается html вёрстка
   html(html) {
     if (typeof html === 'string') {
       this.$el.innerHTML = html;
@@ -18,6 +19,15 @@ class Dom {
     return this;
   }
 
+  /* Добавляет к слушателям приставку on,
+  к примеру к input он добавится и будет onInput.*/
+  on(eventType, callback) {
+    console.log('eventType', eventType);
+    console.log('callback', callback);
+    this.$el.addEventListener(eventType, callback);
+  }
+
+  // Добавлять DOM node к вёрстке
   append(node) {
     if (node instanceof Dom) {
       node = node.$el;
@@ -33,10 +43,12 @@ class Dom {
   }
 }
 
+// Создаёт Dom класс
 export function $(selector) {
   return new Dom(selector);
 }
 
+// Создаётся DOM-элемент с классом.
 $.create = (tagname, classes = '') => {
   const el = document.createElement(tagname);
   if (classes) {
