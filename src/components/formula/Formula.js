@@ -9,7 +9,7 @@ export class Formula extends ExcelComponent {
       listeners: ['input'],
     });
   }
-
+  
   toHTML() {
     return `
       <div class="info">fx</div>

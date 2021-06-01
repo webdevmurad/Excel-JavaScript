@@ -1,3 +1,4 @@
+
 import {capitalize} from './utils';
 
 export class DomListener {
