@@ -19,12 +19,13 @@ class Dom {
     return this;
   }
 
-  /* Добавляет к слушателям приставку on,
-  к примеру к input он добавится и будет onInput.*/
+
   on(eventType, callback) {
-    console.log('eventType', eventType);
-    console.log('callback', callback);
     this.$el.addEventListener(eventType, callback);
+  }
+
+  off(eventType, callback) {
+    this.$el.removeEventListener(eventType, callback);
   }
 
   // Добавлять DOM node к вёрстке

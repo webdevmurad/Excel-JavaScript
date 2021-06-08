@@ -11,12 +11,17 @@ export class DomListener {
     this.listeners.forEach((listener) => {
       const method = getMethodName(listener);
       // Тоже что и addEventListener
-      this.$root.on(listener, this[method].bind(this));
+      this[method] = this[method].bind(this);
+      this.$root.on(listener, this[method]);
     });
   }
 
-  removeDOMListeners() {
-
+  removeDOMListener() {
+    this.listeners.forEach((listener) => {
+      const method = getMethodName(listener);
+      // Тоже что и addEventListener
+      this.$root.off(listener, this[method]);
+    });
   }
 }
 
