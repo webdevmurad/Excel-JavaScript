@@ -6,10 +6,10 @@ export class Formula extends ExcelComponent {
   constructor($root) {
     super($root, {
       name: 'Formula',
-      listeners: ['input'],
+      listeners: ['input', 'click'],
     });
   }
-  
+
   toHTML() {
     return `
       <div class="info">fx</div>
@@ -20,5 +20,9 @@ export class Formula extends ExcelComponent {
   onInput(event) {
     console.log(this.$root);
     console.log('Event', event.target.textContent.trim());
+  }
+
+  onClick() {
+    this.removeDOMListener();
   }
 }
