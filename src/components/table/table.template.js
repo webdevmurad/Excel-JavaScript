@@ -4,11 +4,11 @@ const CODES = {
   Z: 90,
 };
 
-// function createCell() {
-//   return `
-//     <div class="cell" contenteditable></div>
-//   `;
-// }
+function toCell() {
+  return `
+    <div class="cell" contenteditable></div>
+  `;
+}
 
 function toColumn(col) {
   return `
@@ -16,10 +16,10 @@ function toColumn(col) {
   `;
 }
 
-function createRow(content) {
+function createRow(content, index) {
   return `
     <div class="row">
-        <div class="row-info"></div>
+        <div class="row-info">${index ? index : ''}</div>
         <div class="row-data">${content}</div>
     </div>
   `;
@@ -42,7 +42,11 @@ export function createTable(rowscount= 15) {
   rows.push(createRow(cols));
 
   for (let i = 0; i < rowscount; i++) {
-    rows.push(createRow());
+    const cells = new Array(colsCount)
+        .fill('')
+        .map(toCell)
+        .join('');
+    rows.push(createRow(cells, i + 1));
   }
 
   console.log(rows);
