@@ -42,6 +42,7 @@ export function createTable(rowscount= 15) {
   rows.push(createRow(cols));
 
   for (let i = 0; i < rowscount; i++) {
+
     const cells = new Array(colsCount)
         .fill('')
         .map(toCell)
